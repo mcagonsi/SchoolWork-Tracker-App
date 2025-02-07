@@ -1,0 +1,128 @@
+.dashboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+    background-color: #f9f9f9;
+  }
+  
+  .header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links button {
+    margin-left: 15px;
+    cursor: pointer;
+    background-color: black;
+    border:none;
+    color:white;
+  }
+  
+  .account-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 16px;
+    border-radius: 5px;
+  }
+  
+  .account-details p,
+  .task-stats p {
+    margin: 5px 0;
+  }
+  
+  .task-stats {
+    text-align: right;
+    font-size:20pt;
+  }
+  
+  .pending-tasks {
+    color: red;
+    font-weight: bold;
+  }
+
+  .completed-tasks {
+    color:rgb(13, 204, 13);
+    font-weight: bold;
+  }
+  
+  .tabs {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .task-list {
+    margin-top: 20px;
+  }
+  
+  .task-item {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+  }
+  
+  hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+  }
+  
+  .task-create, .task-pending, .task-completed {
+    margin-top: 20px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .create-task-button {
+    background-color: #0b0b61;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .mark-completed-button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .delete-completed-button {
+    background-color: #b00020;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  

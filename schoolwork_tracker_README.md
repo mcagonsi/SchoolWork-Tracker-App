@@ -1,4 +1,3 @@
-
 # Schoolwork Tracker App
 
 ## Overview
@@ -14,6 +13,11 @@ Schoolwork Tracker App is a web-based application designed to help students effe
 
 ## Tech Stack
 
+- **Frontend**: 
+  - React.js for the user interface
+  - Material-UI (MUI) for styled components
+  - React Router for navigation
+  - Axios for API requests
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB (Mongoose as the ODM)
 - **Server**: Nodemon for development
@@ -21,34 +25,53 @@ Schoolwork Tracker App is a web-based application designed to help students effe
   - Express.js for handling server requests
   - MongoDB and Mongoose for database operations
   - CORS for cross-origin requests
+  - JSON Web Token (JWT) for authentication
 
 ## Project Setup
 
 ### Prerequisites
 
-- Node.js and npm should be installed.
-- MongoDB instance should be accessible. The app connects to a MongoDB Atlas cluster.
+- Node.js (v14 or higher) and npm should be installed
+- MongoDB instance should be accessible. The app connects to a MongoDB Atlas cluster
 
-### Installation
+### Frontend Setup
 
-1. Clone the repository:
+1. Navigate to the frontend directory:
    ```bash
-   git clone <repository-url>
+   cd client
    ```
 
-2. Navigate to the project directory:
-   ```bash
-   cd schoolwork-tracker-app
-   ```
-
-3. Install dependencies:
+2. Install frontend dependencies:
    ```bash
    npm install
    ```
 
-### Running the Application
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+   The frontend will run on `http://localhost:3000`
 
-1. Start the server in development mode using Nodemon:
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd server
+   ```
+
+2. Install backend dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the backend directory with the following variables:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_jwt_secret
+   PORT=5352
+   ```
+
+4. Start the server in development mode using Nodemon:
    ```bash
    npm run dev
    ```
@@ -57,15 +80,7 @@ Schoolwork Tracker App is a web-based application designed to help students effe
    npm run serve
    ```
 
-2. The server will run on port `5352` by default. You can access the API at `http://localhost:5352/`.
-
-### Environment Variables
-
-Make sure to update the MongoDB connection string in `index.js` to use your MongoDB instance:
-```javascript
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.yopg5.mongodb.net/', { dbName: 'schoolworktracker' })
-```
-Replace `<username>` and `<password>` with appropriate credentials.
+5. The server will run on port `5352` by default. You can access the API at `http://localhost:5352/`
 
 ## API Endpoints
 
@@ -85,16 +100,28 @@ Replace `<username>` and `<password>` with appropriate credentials.
 
 ## Project Structure
 
-- **controllers/**: Contains business logic for students and tasks.
-  - `student.controller.js` - Student CRUD operations.
-  - `task.controller.js` - Task CRUD operations.
-- **models/**: Mongoose schemas for database operations.
-  - `student.model.js` - Defines the structure of the student documents.
-  - `task.model.js` - Defines the structure of the task documents.
-- **routes/**: Handles routing of API requests.
-  - `student.route.js` - Routes related to student operations.
-  - `task.route.js` - Routes related to task operations.
-- **index.js**: Entry point of the application that sets up Express, connects to MongoDB, and defines the API routes.
+```
+schoolwork-tracker/
+├── client/                     # Frontend React application
+│   ├── public/                 # Static files
+│   ├── src/
+│   │   ├── components/        # Reusable React components
+│   │   ├── pages/            # Page components
+│   │   ├── services/         # API service functions
+│   │   ├── utils/            # Utility functions
+│   │   ├── App.js            # Main React component
+│   │   └── index.js          # React entry point
+│   └── package.json           # Frontend dependencies
+├── server/                     # Backend Node.js/Express application
+│   ├── controllers/           # Business logic
+│   ├── models/               # Database models
+│   ├── routes/               # API routes
+│   ├── middleware/           # Custom middleware
+│   ├── config/              # Configuration files
+│   ├── index.js             # Server entry point
+│   └── package.json         # Backend dependencies
+└── README.md
+```
 
 ## License
 This project is licensed under the ISC License.

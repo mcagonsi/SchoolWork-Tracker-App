@@ -29,7 +29,8 @@ app.use("/schoolwork-tracker/students", studentRoute);
 
 
 // having the api connect to the database
-mongoose.connect('mongodb+srv://michael:root@cluster0.yopg5.mongodb.net/', { dbName: 'schoolworktracker' })
+
+mongoose.connect('<your mongodb connection string>', { dbName: 'schoolworktracker' })
     .then(() => {
         console.log("Connected to the database!");
         app.listen(port, () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/profile.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -15,9 +15,9 @@ function StudentProfilePage() {
   }
 
   // this use state gets all the users information based on the studentId and stores as an object
-  useState(()=>{
+  useEffect(()=>{
     axios
-        .get(`http://localhost:5352/schoolwork-tracker/students/student-details/studentId=${studentId}`)
+        .get(`http://10.0.0.56:5352/schoolwork-tracker/students/student-details/studentId=${studentId}`)
         .then((response) => {
           if (response.data) {
             setStudent(response.data[0]);
@@ -34,7 +34,7 @@ function StudentProfilePage() {
   const handleDeleteAccount = () => {
     
     axios
-        .delete(`http://localhost:5352/schoolwork-tracker/students/delete-account/studentId=${studentId}`)
+        .delete(`http://10.0.0.56:5352/schoolwork-tracker/students/delete-account/studentId=${studentId}`)
         .then((response) => {
           if (response.data) {
             
@@ -86,4 +86,3 @@ function StudentProfilePage() {
 }
 
 export default StudentProfilePage;
-

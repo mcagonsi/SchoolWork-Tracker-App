@@ -33,7 +33,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
         dueDate: dueDate,
         status: 'Pending',
       };
-      axios.post('http://localhost:5352/schoolwork-tracker/tasks/student/tasks/create-task', newTask)
+      axios.post('http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/create-task', newTask)
         .then(response => {
         if (response.data) {
           console.log(response.data);
@@ -63,7 +63,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
       const newTask = {
         status: 'Completed',
       };
-      axios.put(`http://localhost:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`, newTask)
+      axios.put(`http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`, newTask)
         .then(response => {
         if (response.data) {
           console.log(response.data);
@@ -88,7 +88,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
   const markDeleted = (task_id) => {
     if (task_id) {
       
-      axios.delete(`http://localhost:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`,)
+      axios.delete(`http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`,)
         .then(response => {
         if (response.data) {
           console.log(response.data);

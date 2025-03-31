@@ -29,7 +29,7 @@ function CreateAccountPage() {
         schoolName: schoolName,
         password: password,
       }
-      axios.post('http://10.0.0.56:5352/schoolwork-tracker/students/create-student-account/', student)
+      axios.post('http://localhost:5352/schoolwork-tracker/students/create-student-account/', student)
         .then(response => {
         if (response.data) {
           console.log(response.data);

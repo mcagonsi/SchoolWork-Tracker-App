@@ -13,14 +13,17 @@ function LoginPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    
     sessionStorage.setItem('studentId', studentId);
   }, [studentId]);
 
   useEffect(() => {
+    
     sessionStorage.setItem('userId', userId);
   }, [userId]);
 
-  // handles the login process for the user
+
+// handles the login process for the user
   const handleLogin = () => {
     setErrorMessage('');  // Clear any previous errors
     setSuccessMessage('');  // Clear any previous success messages
@@ -31,14 +34,17 @@ function LoginPage() {
     } else {
       // Fetch password based on student ID from API
       axios
-        .get(`http://10.0.0.56:5352/schoolwork-tracker/students/login/studentId=${studentId}`)
+        .get(`http://localhost:5352/schoolwork-tracker/students/login/studentId=${studentId}`)
         .then((response) => {
           if (response.data && response.data.password) {
             if (inputPassword === response.data.password) {
               setSuccessMessage('Login Successful');
 
               //i am using sessionStorage to keep track of the userid and studentNumber to be able to access in other pages
+              
               setUserId(response.data.userID);
+              // sessionStorage.setItem('userId',response.data.userID);
+              // sessionStorage.setItem('studentId',studentId);
 
               //if the password is valid then it navigates to the dashboard page
               navigate('/dashboard')
@@ -65,6 +71,7 @@ function LoginPage() {
     <div className="login-container">
       <div className="header">
         <h1>SCHOOLWORK TRACKER APP</h1> <br></br>
+        
       </div>
       <div className="form-container">
         <div className="input-group">
@@ -99,3 +106,4 @@ function LoginPage() {
 
 // exports the loginPage for render, corresponding with the root entry point on the routes
 export default LoginPage;
+

@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function TaskTabs({ activeTab, setActiveTab, tasks }) {
   const navigate = useNavigate()
+   const storedUserId = sessionStorage.getItem('userId');
 
   // useState hooks for the TaskTabs
   const [course, setCourse] = useState('');
@@ -16,10 +17,11 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
   const [successMessage, setSuccessMessage] = useState('');
   const [userId, setUserId] = useState('');
   
- useEffect(()=>{
-  const storedUserId = sessionStorage.getItem('userId');
-  setUserId(storedUserId);
- })
+  useEffect(() => {
+    setUserId(storedUserId);
+  }, [storedUserId]);
+  
+ 
   
 // handles the onClick event for the create task tab and switches the tab currently being displayed
   const handleCreateTask = () => {
@@ -33,7 +35,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
         dueDate: dueDate,
         status: 'Pending',
       };
-      axios.post('http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/create-task', newTask)
+      axios.post('http://localhost:5352/schoolwork-tracker/tasks/student/tasks/create-task', newTask)
         .then(response => {
         if (response.data) {
           console.log(response.data);
@@ -63,7 +65,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
       const newTask = {
         status: 'Completed',
       };
-      axios.put(`http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`, newTask)
+      axios.put(`http://localhost:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`, newTask)
         .then(response => {
         if (response.data) {
           console.log(response.data);
@@ -88,7 +90,7 @@ function TaskTabs({ activeTab, setActiveTab, tasks }) {
   const markDeleted = (task_id) => {
     if (task_id) {
       
-      axios.delete(`http://10.0.0.56:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`,)
+      axios.delete(`http://localhost:5352/schoolwork-tracker/tasks/student/tasks/id=${task_id}`,)
         .then(response => {
         if (response.data) {
           console.log(response.data);
